@@ -31,7 +31,7 @@ function salvar()
     //sanitizacao   
     $idusuario = $_SESSION['id'];
     $titulo = filter_var($_POST['titulo'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $data = date('Y/m/d H:i:s');
+    $data = date('Y-m-d H:i:s');
     $texto = filter_var($_POST['texto'], FILTER_SANITIZE_SPECIAL_CHARS);
 
     $post = new Post();

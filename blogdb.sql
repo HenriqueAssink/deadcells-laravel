@@ -11,10 +11,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema blogdb
 -- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `blogdb` ;
-
--- -----------------------------------------------------
--- Schema blogdb
--- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `blogdb` DEFAULT CHARACTER SET utf8 ;
 USE `blogdb` ;
 
@@ -27,16 +23,15 @@ CREATE TABLE IF NOT EXISTS `blogdb`.`usuario` (
   `email` VARCHAR(80) NOT NULL,
   `senha` VARCHAR(64) NOT NULL,
   `foto` VARCHAR(120) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `blogdb`.`post`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blogdb`.`post` (
-  `id` INT NOT NULL,
-  `id_usuario` INT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_usuario` INT NOT NULL,
   `titulo` VARCHAR(120) NOT NULL,
   `data` DATETIME NOT NULL,
   `texto` TEXT NOT NULL,
@@ -45,10 +40,9 @@ CREATE TABLE IF NOT EXISTS `blogdb`.`post` (
   CONSTRAINT `fk_post_usuario`
     FOREIGN KEY (`id_usuario`)
     REFERENCES `blogdb`.`usuario` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

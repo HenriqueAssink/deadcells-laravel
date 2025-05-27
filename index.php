@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once('./app/models/Post.php');
-$produtos = new Post();
-$lista = $produtos->selecionarTodos();
+$posts = new Post();
+$lista = $posts->selecionarTodos();
 $titulo = "Blog";
 require_once('./layouts/header.php');
 ?>
@@ -39,14 +39,14 @@ if (isset($_GET['sucesso'])) {
     <div class="container mt-4 ">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <?php foreach ($lista as $item) : ?>
+                <?php foreach ($lista as $item) { ?>
                     <div class="custom-shadow p-3 mb-3 bg-dark text-white">
                         <h3 class="text-white"><?php echo $item->getTitulo(); ?></h3>
                         <p class="text-white"><?php echo $item->getTexto(); ?></p>
                         <p class="text-white"><?php echo $item->getData(); ?></p>
                         <a href="post.php?id=<?php echo $item->getId(); ?>" class="btn btn-outline-danger">Ver mais detalhes</a>
                     </div>
-                <?php endforeach; ?>
+                <?php } ?>
             </div>
         </div>
     </div>

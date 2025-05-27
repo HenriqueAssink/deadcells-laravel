@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['logado'])) {
+    header('Location: index.php');
+    exit;
+}
 require_once('./app/models/Post.php');
 $id_usuario = $_SESSION['id'];
 $posts = new Post();
@@ -11,22 +15,34 @@ require_once('./layouts/header.php');
 <?php
 if (isset($_GET['sucesso'])) {
     if ($_GET['sucesso'] == 1) {
-        echo '<p class="text-success">Seu post foi excluido com sucesso!</p>';
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                Seu post foi excluído com sucesso!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>';
     }
 }
 if (isset($_GET['erro'])) {
     if ($_GET['erro'] == 0) {
-        echo '<p class="text-danger">Algo deu errado</p>';
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Algo deu errado
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>';
     }
 }
 if (isset($_GET['sucesso'])) {
     if ($_GET['sucesso'] == 2) {
-        echo '<p class="text-success">Post atualizado com sucesso!</p>';
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                Post atualizado com sucesso!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>';
     }
 }
 if (isset($_GET['sucesso'])) {
     if ($_GET['sucesso'] == 0) {
-        echo '<p class="text-success">Seu post foi postado com sucesso!</p>';
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                Seu post foi postado com sucesso!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>';
     }
 }
 ?>

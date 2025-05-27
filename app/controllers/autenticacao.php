@@ -37,15 +37,15 @@ function login()
         return false;
     }
 
-    if (session_status() != PHP_SESSION_ACTIVE) {
-        session_regenerate_id(true); //exclui IDs antigos
-        session_id(bin2hex(random_bytes(16))); //gera id aleatoria
-    }
+    // if (session_status() != PHP_SESSION_ACTIVE) {
+    //     session_regenerate_id(true);
+    //     session_id(bin2hex(random_bytes(16))); 
+    // }
 
     $_SESSION['id'] = $buscaUsuario->getId();
     $_SESSION['email'] = $buscaUsuario->getEmail();
     $_SESSION['nome'] = $buscaUsuario->getNome();
-    $_SESSION['perfil'] = 0; //perfil de admin
+    $_SESSION['perfil'] = 0;
     $_SESSION['logado'] = true;
 
     header('Location: ../../index.php?sucesso=3');

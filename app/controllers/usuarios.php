@@ -85,7 +85,7 @@ function atualizar()
     }
 
     //simular um UPDATE no BD
-    $usuarios = new Usuario(); //objeto de suporte -> model
+    $usuarios = new Usuario();
     $usuario = $usuarios->selecionarPorId($id);
     $usuario->setNome($nome);
     $usuario->setEmail($email);

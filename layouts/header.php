@@ -37,7 +37,6 @@
 
     .custom-shadow {
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        /*intensidade e cor da sombra*/
     }
 </style>
 
@@ -62,10 +61,10 @@
                         <a href="./criar-post.php" class="btn btn-outline-light mx-2">Criar Post</a>
                         <a href="./app/controllers/autenticacao.php?op=logout" class="btn btn-outline-light mx-2">Logout</a>
                     <?php } else { ?>
-                        <a href="../login.php" class="btn btn-outline-light mx-2">Entrar</a>
-                        <a href="../register.php" class="btn btn-outline-light mx-2">Registrar</a>
+                        <a href="./login.php" class="btn btn-outline-light mx-2">Entrar</a>
+                        <a href="./register.php" class="btn btn-outline-light mx-2">Registrar</a>
                     <?php } ?>
                 </form>
-            </div> 
+            </div>
         </div>
     </nav>

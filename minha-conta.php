@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['logado'])) {
+    header('Location: index.php');
+    exit;
+}
 require_once('./app/models/Usuario.php');
 $id_usuario = $_SESSION['id'];
 $usuario = new Usuario();
@@ -38,14 +42,11 @@ if (isset($_GET['sucesso'])) {
                             <?php echo $usuarios->getNome(); ?>
                         </h3>
                         <p class="card-text">
-                            <img src="assets/img/usuarios/<?php echo $usuarios->getFoto(); ?>" alt="Foto do usuário"
-                                class="img-fluid rounded-circle">
+                            <img src="assets/img/usuarios/<?php echo $usuarios->getFoto(); ?>" alt="Foto do usuário" class="img-fluid rounded-circle">
                         </p>
 
-                        <a href="editar-usuario.php?id=<?php echo $usuarios->getId(); ?>"
-                            class="btn btn-outline-light">Editar usuário</a>
-                        <a href="./app/controllers/usuarios.php?op=excluir&id=<?php echo $usuarios->getId(); ?>"
-                            class="btn btn-outline-danger">Excluir</a>
+                        <a href="editar-usuario.php?id=<?php echo $usuarios->getId(); ?>" class="btn btn-outline-light">Editar usuário</a>
+                        <a href="./app/controllers/usuarios.php?op=excluir&id=<?php echo $usuarios->getId(); ?>" class="btn btn-outline-danger">Excluir</a>
                     </div>
                 </div>
             </div>

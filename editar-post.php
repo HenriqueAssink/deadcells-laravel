@@ -26,15 +26,14 @@ if (!$post) {
 require_once('./layouts/header.php');
 ?>
 
-<?php
-if (isset($_GET['erro'])) {
-    if ($_GET['erro'] == 1) {
-        echo '<p class="text-danger">Campos obrigatórios não preenchidos (Título e Texto)</p>';
-    }
-}
-?>
-
 <main class="container mt-5">
+    <?php
+    if (isset($_GET['erro'])) {
+        if ($_GET['erro'] == 1) {
+            echo '<p class="text-danger text-center">Campos obrigatórios não preenchidos (Título e Texto)</p>';
+        }
+    }
+    ?>
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-6">

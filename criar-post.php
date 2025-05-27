@@ -1,7 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['logado'])) {
-    require_once("./index.php");
+    header('Location: index.php');
+    exit;
 }
 $titulo = 'Criar Post';
 ?>
@@ -15,7 +16,7 @@ $titulo = 'Criar Post';
                 <?php
                 if (isset($_GET['erro'])) {
                     if ($_GET['erro'] == 1) {
-                        echo '<p class="text-danger">Campos obrigatórios não preenchidos (Título e Texto)</p>';
+                        echo '<p class="text-danger text-center">Campos obrigatórios não preenchidos (Título e Texto)</p>';
                     }
                 }
                 ?>
