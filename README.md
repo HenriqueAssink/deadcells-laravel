@@ -41,7 +41,7 @@ Esse script cria as tabelas:
 Abra o arquivo:  
 
 ```php
-/config/database.php
+/models/Conexao.php
 ```  
 
 Altere as informações de acordo com o seu ambiente:  
